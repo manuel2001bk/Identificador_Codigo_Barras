@@ -17,9 +17,7 @@ const entrada = document.getElementById('codigo').addEventListener('change', upd
 
 const getValueInput = () => {
     if (verificar()) {
-        if (codigos()) {
-
-        }
+        codigos()
     }
 }
 
