@@ -1,9 +1,12 @@
+
 var codigo = ''
+var list_Tabla = 0
 
 var pais = ''
 var empresa = ''
 var producto = ''
 var numCal = ''
+
 var list_Paises = [{
     'clave': '001',
     'pais': 'Estados Unidos'
@@ -108,17 +111,19 @@ function reiniciar() {
     document.getElementById('codigo').value = ''
 }
 function agregar_Tabla() {
-    var fila = "<tr><td>" + pais + "</td><td>" + empresa + "</td><td> " + producto + "</td><td>" + numCal + "</td></tr> ";
+    var fila = "<tr><td>" + pais + "</td><td>" + empresa + "</td><td> " + producto + "</td><td>" + numCal + "</td><td> <img id='codigo" + list_Tabla + "'/></td></tr> ";
     var btn = document.createElement("TR");
     btn.innerHTML = fila;
     document.getElementById("tablaDatos").appendChild(btn);
+    JsBarcode("#codigo" + list_Tabla, codigo);
     reiniciar()
+    list_Tabla++
 }
 function bloque1(codigoBlock) {
     for (var x in list_Paises) {
         if (codigoBlock == list_Paises[x].clave) {
             pais = list_Paises[x].pais
-            console.log(pais)
+            // console.log(pais)
             return true
         }
     }
@@ -129,7 +134,7 @@ function bloque1(codigoBlock) {
 function bloque2(codigoBlock) {
     if (codigoBlock != '0000') {
         empresa = codigoBlock
-        console.log(empresa)
+        // console.log(empresa)
         return true
     }
     else {
@@ -140,7 +145,7 @@ function bloque2(codigoBlock) {
 function bloque3(codigoBlock) {
     if (codigoBlock != '00000') {
         producto = codigoBlock
-        console.log(producto)
+        // console.log(producto)
         return true
     }
     else {
@@ -151,7 +156,7 @@ function bloque3(codigoBlock) {
 function bloque4(codigoBlock) {
     if (codigoBlock != null) {
         numCal = codigoBlock
-        console.log(numCal)
+        // console.log(numCal)
         return true
     }
     else {
