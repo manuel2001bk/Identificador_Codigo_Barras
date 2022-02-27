@@ -4,10 +4,46 @@ var pais = ''
 var empresa = ''
 var producto = ''
 var numCal = ''
-
-const numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-const numeros2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-var mexico = 750
+var list_Paises = [{
+    'clave': '001',
+    'pais': 'Estados Unidos'
+}, {
+    'clave': '020',
+    'pais': 'Marcado Minoristas'
+}, {
+    'clave': '030',
+    'pais': 'Francia'
+}, {
+    'clave': '380',
+    'pais': 'Bulgaria'
+}, {
+    'clave': '383',
+    'pais': 'Eslovenia'
+}, {
+    'clave': '385',
+    'pais': 'Croacia '
+}, {
+    'clave': '387',
+    'pais': 'Bosnia y Herzegovina '
+}, {
+    'clave': '400',
+    'pais': 'Alemania '
+}, {
+    'clave': '045',
+    'pais': 'Japón '
+}, {
+    'clave': '460',
+    'pais': 'Rusia'
+}, {
+    'clave': '471',
+    'pais': 'Taiwán'
+}, {
+    'clave': '489',
+    'pais': 'Hong Kong'
+}, {
+    'clave': '750',
+    'pais': 'Mexico'
+}]
 
 const updateValue = (e) => {
     codigo = e.target.value;
@@ -42,7 +78,7 @@ const errors = (tipo) => {
             break;
         case 3:
             alert("El codigo de la empresa es incorrecto")
-            break; 
+            break;
         case 4:
             alert("El numero del producto es incorrecto")
             break;
@@ -50,7 +86,7 @@ const errors = (tipo) => {
             alert("Imposible poder validar el codigo")
             break;
     }
-    document.getElementById('codigo').value=''
+    document.getElementById('codigo').value = ''
 }
 function codigos() {
     if (bloque1(codigo.substring(0, 3))) {
@@ -69,7 +105,7 @@ function reiniciar() {
     producto = ''
     numCal = ''
     codigo = ''
-    document.getElementById('codigo').value=''
+    document.getElementById('codigo').value = ''
 }
 function agregar_Tabla() {
     var fila = "<tr><td>" + pais + "</td><td>" + empresa + "</td><td> " + producto + "</td><td>" + numCal + "</td></tr> ";
@@ -79,15 +115,15 @@ function agregar_Tabla() {
     reiniciar()
 }
 function bloque1(codigoBlock) {
-    if (codigoBlock == mexico) {
-        pais = 'Mexico'
-        console.log(pais)
-        return true
+    for (var x in list_Paises) {
+        if (codigoBlock == list_Paises[x].clave) {
+            pais = list_Paises[x].pais
+            console.log(pais)
+            return true
+        }
     }
-    else {
-        errors(2)
-        return false
-    }
+    errors(2)
+    return false
 }
 
 function bloque2(codigoBlock) {
