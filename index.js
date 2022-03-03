@@ -120,19 +120,31 @@ function agregar_Tabla() {
     list_Tabla++
 }
 function bloque1(codigoBlock) {
-    for (var x in list_Paises) {
-        if (codigoBlock == list_Paises[x].clave) {
-            pais = list_Paises[x].pais
-            // console.log(pais)
-            return true
+    let num1 = /\d\d[1-9]/
+    let num2 = /\d[1-9]\d/
+    let num3 = /[1-9]\d\d/
+    if (num1.test(codigoBlock) | num2.test(codigoBlock) | num3.test(codigoBlock)) {
+        console.log("ingreso")
+        for (var x in list_Paises) {
+            if (codigoBlock == list_Paises[x].clave) {
+                pais = list_Paises[x].pais
+                // console.log(pais)
+                return true
+            }
         }
+
+
     }
     errors(2)
     return false
 }
 
 function bloque2(codigoBlock) {
-    if (codigoBlock != '0000') {
+    let num4 = /\d\d\d[1-9]/
+    let num5 = /\d\d[1-9]\d/
+    let num6 = /\d[1-9]\d\d/
+    let num7 = /[1-9]\d\d\d/
+    if (num4.test(codigoBlock) | num5.test(codigoBlock) | num6.test(codigoBlock) | num7.test(codigoBlock)) {
         empresa = codigoBlock
         // console.log(empresa)
         return true
@@ -143,7 +155,12 @@ function bloque2(codigoBlock) {
     }
 }
 function bloque3(codigoBlock) {
-    if (codigoBlock != '00000') {
+    let num8 = /\d\d\d\d[1-9]/
+    let num9 = /\d\d\d[1-9]\d/
+    let num10 = /\d\d[1-9]\d\d/
+    let num11 = /\d[1-9]\d\d\d/
+    let num12 = /[1-9]\d\d\d\d/
+    if (num8.test(codigoBlock)|num9.test(codigoBlock)|num10.test(codigoBlock)|num11.test(codigoBlock)|num12.test(codigoBlock)) {
         producto = codigoBlock
         // console.log(producto)
         return true
@@ -154,7 +171,8 @@ function bloque3(codigoBlock) {
     }
 }
 function bloque4(codigoBlock) {
-    if (codigoBlock != null) {
+    let num13 = /\d/
+    if (num13.test(codigoBlock)) {
         numCal = codigoBlock
         // console.log(numCal)
         return true
