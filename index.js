@@ -142,7 +142,7 @@ function bloque1(codigoBlock) {
 }
 
 function bloque2(codigoBlock) {
-    let num2 = /(\d\d\d[1-9])|(\d\d[1-9]\d|)|(\d[1-9]\d\d) | ([1-9]\d\d\d)/
+    let num2 = /(\d\d\d[1-9])|(\d\d[1-9]\d)|(\d[1-9]\d\d)|([1-9]\d\d\d)/
     if (num2.test(codigoBlock)) {
         empresa = codigoBlock
         // console.log(empresa)
