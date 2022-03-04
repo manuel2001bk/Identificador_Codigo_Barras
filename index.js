@@ -52,6 +52,7 @@ const updateValue = (e) => {
     codigo = e.target.value;
     console.log(codigo)
 }
+
 const entrada = document.getElementById('codigo').addEventListener('change', updateValue, false);
 
 const getValueInput = () => {
@@ -71,6 +72,7 @@ function verificar() {
         return false
     }
 }
+
 const errors = (tipo) => {
     switch (tipo) {
         case 1:
@@ -91,6 +93,7 @@ const errors = (tipo) => {
     }
     document.getElementById('codigo').value = ''
 }
+
 function codigos() {
     if (bloque1(codigo.substring(0, 3))) {
         if (bloque2(codigo.substring(3, 7))) {
@@ -102,6 +105,7 @@ function codigos() {
         }
     }
 }
+
 function reiniciar() {
     pais = ''
     empresa = ''
@@ -110,6 +114,7 @@ function reiniciar() {
     codigo = ''
     document.getElementById('codigo').value = ''
 }
+
 function agregar_Tabla() {
     var fila = "<tr><td>" + pais + "</td><td>" + empresa + "</td><td> " + producto + "</td><td>" + numCal + "</td><td> <img id='codigo" + list_Tabla + "'/></td></tr> ";
     var btn = document.createElement("TR");
@@ -119,6 +124,7 @@ function agregar_Tabla() {
     reiniciar()
     list_Tabla++
 }
+
 function bloque1(codigoBlock) {
     let num1 = /(\d\d[1-9])|(\d[1-9]\d)|([1-9]\d\d)/
     if (num1.test(codigoBlock)) {
@@ -130,8 +136,6 @@ function bloque1(codigoBlock) {
                 return true
             }
         }
-
-
     }
     errors(2)
     return false
@@ -149,6 +153,7 @@ function bloque2(codigoBlock) {
         return false
     }
 }
+
 function bloque3(codigoBlock) {
     let num3 = /(\d\d\d\d[1-9])|(\d\d\d[1-9]\d)|(\d\d[1-9]\d\d)|(\d[1-9]\d\d\d)|([1-9]\d\d\d\d)/
     if (num3.test(codigoBlock)) {
@@ -161,6 +166,7 @@ function bloque3(codigoBlock) {
         return false
     }
 }
+
 function bloque4(codigoBlock) {
     let num4 = /\d/
     if (num4.test(codigoBlock)) {
